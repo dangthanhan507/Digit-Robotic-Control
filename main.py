@@ -17,6 +17,12 @@ if __name__ == '__main__':
     robotId = p.loadURDF("urdf/digit_model.urdf", startPos, startOrientation)
     p.setRealTimeSimulation(1)
 
+    print('Num Joints:', p.getNumJoints(robotId))
+    num_joints = p.getNumJoints(robotId)
+    for i in range(num_joints):
+        print(p.getJointInfo(robotId, i), end='\n\n')
+    input()
+
     while True:
         print(p.getBasePositionAndOrientation(robotId))
         p.stepSimulation()
