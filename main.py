@@ -50,7 +50,10 @@ if __name__ == '__main__':
         print('linkName: ', linkName)
 
         print('\n\n')
-    input()
+
+        
+
+    p.setJointMotorControl2(robotId, 0, p.TORQUE_CONTROL, targetPosition=0, force=500)
 
     while True:
         print(p.getBasePositionAndOrientation(robotId))
