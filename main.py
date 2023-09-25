@@ -9,12 +9,15 @@ if __name__ == '__main__':
 
     #set start position
 
-    startPos = [0,0,1]
-    startOrientation = p.getQuaternionFromEuler([np.pi/2,0,0])
+    startPos = [0,0,0.8]
+    # startOrientation = p.getQuaternionFromEuler([np.pi/2,0,0]) # everything in radians
+    startOrientation = p.getQuaternionFromEuler([0,0,0])
 
     planeId = p.loadURDF("plane.urdf")
     robotId = p.loadURDF("urdf/digit_model.urdf", startPos, startOrientation)
+    p.setRealTimeSimulation(1)
 
     while True:
+        print(p.getBasePositionAndOrientation(robotId))
         p.stepSimulation()
     p.disconnect()
