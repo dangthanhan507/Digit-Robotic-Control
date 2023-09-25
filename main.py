@@ -1,6 +1,6 @@
+import numpy as np
 import pybullet as p
 import pybullet_data
-import numpy as np
 
 if __name__ == '__main__':
     physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
@@ -12,9 +12,9 @@ if __name__ == '__main__':
     startPos = [0,0,1]
     startOrientation = p.getQuaternionFromEuler([np.pi/2,0,0])
 
+    planeId = p.loadURDF("plane.urdf")
     robotId = p.loadURDF("urdf/digit_model.urdf", startPos, startOrientation)
 
-
-    p.stepSimulation()
-    input()
+    while True:
+        p.stepSimulation()
     p.disconnect()
