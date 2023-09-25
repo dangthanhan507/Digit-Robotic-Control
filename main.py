@@ -20,7 +20,36 @@ if __name__ == '__main__':
     print('Num Joints:', p.getNumJoints(robotId))
     num_joints = p.getNumJoints(robotId)
     for i in range(num_joints):
-        print(p.getJointInfo(robotId, i), end='\n\n')
+        joint_info = p.getJointInfo(robotId, i)
+        joint_idx = joint_info[0]
+        joint_name = joint_info[1]
+        joint_type = joint_info[2]
+        qIndex = joint_info[3]
+        uIndex = joint_info[4]
+        jointDamping = joint_info[6]
+        jointFriction = joint_info[7]
+        joint_lower_limit = joint_info[8]
+        joint_upper_limit = joint_info[9]
+        joint_max_force = joint_info[10]
+        joint_max_velocity = joint_info[11]
+        linkName = joint_info[12]
+
+        print('Start Joint Print', i)
+        print('==================')
+        print('joint_idx: ', joint_idx)
+        print('joint_name: ', joint_name)
+        print('joint_type: ', joint_type)
+        print('qIndex: ', qIndex)
+        print('uIndex: ', uIndex)
+        print('jointDamping: ', jointDamping)
+        print('jointFriction: ', jointFriction)
+        print('joint_lower_limit: ', joint_lower_limit)
+        print('joint_upper_limit: ', joint_upper_limit)
+        print('joint_max_force: ', joint_max_force)
+        print('joint_max_velocity: ', joint_max_velocity)
+        print('linkName: ', linkName)
+
+        print('\n\n')
     input()
 
     while True:
